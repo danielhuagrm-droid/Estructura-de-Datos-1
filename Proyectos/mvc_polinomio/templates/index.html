@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Polinomios</title>
+    <style>
+        /* Estilos CSS para mejorar la apariencia */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .contenedor {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 12px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .resultado {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            font-size: 24px; /* Tamaño de letra más grande para el resultado */
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h2 style="margin-top: 0;">Generador de Polinomio</h2>
+        
+        <form method="POST" action="/">
+            <label for="coeficientes">Ingresa los coeficientes de mayor a menor grado (separados por coma):</label>
+            <input type="text" id="coeficientes" name="coeficientes" placeholder="Ejemplo: 1, 2, 3, 4" required autocomplete="off">
+            <br>
+            <button type="submit">Generar Polinomio</button>
+        </form>
+        {% if resultado %}
+            <div class="resultado">
+                <strong>P(x) = </strong> {{ resultado | safe }}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
